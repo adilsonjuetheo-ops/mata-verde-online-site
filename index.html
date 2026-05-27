@@ -179,18 +179,18 @@
       color: #fff;
     }
     .nav-logo .logo-icon {
-      height: 42px;
-      width: auto;
       display: flex;
       align-items: center;
     }
     .nav-logo .logo-icon img {
-      height: 42px;
+      height: 48px;
       width: auto;
+      max-width: 220px;
       object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(0,230,77,0.4));
     }
     .nav-logo span { color: var(--green); }
-    .nav-logo .logo-icon img { filter: drop-shadow(0 0 8px rgba(0,230,77,0.35)); }
     .nav-links {
       display: flex;
       align-items: center;
@@ -545,6 +545,121 @@
       margin-top: 1px;
     }
     .plan-card .btn { width: 100%; justify-content: center; }
+
+    /* ──────────── SHOWCASE SECTIONS ──────────── */
+    .showcase { position: relative; overflow: hidden; }
+    .showcase-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .showcase-layout.reverse { direction: rtl; }
+    .showcase-layout.reverse > * { direction: ltr; }
+    .showcase-text { display: flex; flex-direction: column; gap: 20px; }
+    .showcase-text p { font-size: 16px; color: var(--text-muted); line-height: 1.75; }
+    .showcase-text .btn { align-self: flex-start; }
+    .showcase-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      background: rgba(0,230,77,0.07);
+      border: 1px solid rgba(0,230,77,0.2);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .tag.gold {
+      background: rgba(255,215,0,0.07);
+      border-color: rgba(255,215,0,0.2);
+      color: var(--gold);
+    }
+    /* SVG illustration containers */
+    .illus-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .illus-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,230,77,0.07), transparent);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .illus-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(0,230,77,0.06);
+    }
+    .illus-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 20%; right: 20%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+    }
+    /* Router illustration */
+    .router-svg { width: 100%; max-width: 360px; margin: 0 auto; display: block; }
+    /* Speed meter */
+    .speed-dial { width: 100%; max-width: 340px; margin: 0 auto; display: block; }
+    /* Steps — "Como funciona" */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      position: relative;
+      padding-bottom: 28px;
+    }
+    .step:last-child { padding-bottom: 0; }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 44px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(0,230,77,0.3), transparent);
+    }
+    .step-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: #fff;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(0,230,77,0.4);
+    }
+    .step-body h4 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .step-body p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    @media (max-width: 1024px) {
+      .showcase-layout { grid-template-columns: 1fr; gap: 40px; }
+      .showcase-layout.reverse { direction: ltr; }
+      .illus-wrap { display: none; }
+    }
+    @media (max-width: 768px) {
+      #como-funciona-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+    @media (max-width: 480px) {
+      #como-funciona-grid { grid-template-columns: 1fr !important; }
+    }
 
     /* ──────────── DIFERENCIAIS ──────────── */
     #diferenciais { position: relative; overflow: hidden; }
@@ -1052,6 +1167,7 @@
         <li><a href="#hero">Início</a></li>
         <li><a href="#planos">Planos</a></li>
         <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
@@ -1224,6 +1340,221 @@
       <p style="text-align:center;margin-top:28px;font-size:13px;color:var(--text-muted);">
         Dúvidas sobre qual plano escolher? <a href="https://wa.me/5533987201213" target="_blank" style="color:var(--green);font-weight:600;">Fale com a gente pelo WhatsApp →</a>
       </p>
+    </div>
+  </section>
+
+  <!-- ──────────── SHOWCASE: ROTEADOR ──────────── -->
+  <section class="showcase" style="background:var(--bg2);">
+    <div class="container">
+      <div class="showcase-layout">
+        <div class="illus-wrap reveal">
+          <div class="illus-bg"></div>
+          <div class="illus-card">
+            <!-- Router SVG Illustration -->
+            <svg class="router-svg" viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- signal waves -->
+              <ellipse cx="180" cy="80" rx="120" ry="60" stroke="rgba(0,230,77,0.08)" stroke-width="1.5"/>
+              <ellipse cx="180" cy="80" rx="90" ry="44" stroke="rgba(0,230,77,0.12)" stroke-width="1.5"/>
+              <ellipse cx="180" cy="80" rx="60" ry="28" stroke="rgba(0,230,77,0.18)" stroke-width="1.5"/>
+              <ellipse cx="180" cy="80" rx="30" ry="14" stroke="rgba(0,230,77,0.28)" stroke-width="1.5"/>
+              <!-- antennas -->
+              <line x1="110" y1="155" x2="90" y2="95" stroke="#00e64d" stroke-width="3" stroke-linecap="round"/>
+              <line x1="250" y1="155" x2="270" y2="95" stroke="#00e64d" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="90" cy="92" r="5" fill="#00e64d" filter="url(#glow)"/>
+              <circle cx="270" cy="92" r="5" fill="#00e64d" filter="url(#glow)"/>
+              <!-- router body -->
+              <rect x="80" y="150" width="200" height="70" rx="14" fill="#162019" stroke="rgba(0,230,77,0.3)" stroke-width="1.5"/>
+              <rect x="80" y="150" width="200" height="4" rx="2" fill="url(#topbar)"/>
+              <!-- LED lights -->
+              <circle cx="108" cy="175" r="5" fill="#00e64d"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle>
+              <circle cx="126" cy="175" r="5" fill="#00e64d"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.3s" repeatCount="indefinite"/></circle>
+              <circle cx="144" cy="175" r="5" fill="#ffd700"><animate attributeName="opacity" values="1;0.3;1" dur="1.5s" begin="0.6s" repeatCount="indefinite"/></circle>
+              <circle cx="162" cy="175" r="5" fill="#00e64d"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.9s" repeatCount="indefinite"/></circle>
+              <!-- brand text on router -->
+              <text x="180" y="202" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="rgba(0,230,77,0.6)" letter-spacing="2">FIBRA ÓPTICA</text>
+              <!-- cable -->
+              <path d="M180 220 Q180 240 180 248" stroke="rgba(0,230,77,0.2)" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="180" cy="250" r="4" fill="rgba(0,230,77,0.3)" stroke="rgba(0,230,77,0.5)" stroke-width="1"/>
+              <!-- signal dot top -->
+              <circle cx="180" cy="80" r="6" fill="#00e64d"><animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/></circle>
+              <defs>
+                <linearGradient id="topbar" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="transparent"/>
+                  <stop offset="50%" stop-color="#00e64d"/>
+                  <stop offset="100%" stop-color="transparent"/>
+                </linearGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+            </svg>
+            <!-- mini stats below router -->
+            <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;">
+              <div style="text-align:center;flex:1;background:rgba(0,230,77,0.05);border:1px solid rgba(0,230,77,0.15);border-radius:10px;padding:10px;">
+                <div style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:900;color:var(--green);">Wi-Fi 6</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Tecnologia</div>
+              </div>
+              <div style="text-align:center;flex:1;background:rgba(0,230,77,0.05);border:1px solid rgba(0,230,77,0.15);border-radius:10px;padding:10px;">
+                <div style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:900;color:var(--green);">1 Gbps</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Velocidade máx.</div>
+              </div>
+              <div style="text-align:center;flex:1;background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.15);border-radius:10px;padding:10px;">
+                <div style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:900;color:var(--gold);">&lt;5ms</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Latência</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="showcase-text">
+          <div class="section-label reveal">Equipamento</div>
+          <h2 class="section-title reveal">Roteador <span>de alta performance</span> incluso</h2>
+          <p class="reveal">Tecnologia de ponta entregue na sua casa. Nossa rede de fibra óptica garante a máxima velocidade do sinal até o seu roteador, sem perdas e sem interferência.</p>
+          <div class="showcase-tags reveal">
+            <span class="tag">⚡ Fibra Óptica</span>
+            <span class="tag">📶 Sinal Estável</span>
+            <span class="tag gold">🏠 Instalação Grátis</span>
+            <span class="tag">🔧 Suporte Técnico</span>
+          </div>
+          <a href="https://wa.me/5533987201213?text=Quero%20saber%20mais%20sobre%20o%20equipamento%20incluso%20nos%20planos!" target="_blank" class="btn btn-primary reveal">
+            📲 Saiba mais pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── SHOWCASE: VELOCIDADE ──────────── -->
+  <section class="showcase">
+    <div class="container">
+      <div class="showcase-layout reverse">
+        <div class="showcase-text">
+          <div class="section-label reveal">Performance Real</div>
+          <h2 class="section-title reveal">Velocidade que você <span>realmente sente</span></h2>
+          <p class="reveal">Chega de internet lenta na hora do filme, do jogo ou da reunião. Com a Mata Verde Online você tem a velocidade contratada de verdade — fibra óptica até você.</p>
+          <div class="steps reveal">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>Streaming 4K sem travar</h4>
+                <p>Netflix, YouTube, Prime Video na melhor qualidade, vários dispositivos ao mesmo tempo.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>Games online sem lag</h4>
+                <p>Latência ultra baixa para você jogar sem atraso e dominar a partida.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>Home office sem interrupção</h4>
+                <p>Videochamadas, documentos na nuvem e sistemas corporativos funcionando o dia todo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="illus-wrap reveal">
+          <div class="illus-bg" style="background:radial-gradient(ellipse 70% 70% at 50% 50%, rgba(255,215,0,0.05), transparent);"></div>
+          <div class="illus-card">
+            <!-- Speed meter SVG -->
+            <svg class="speed-dial" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- outer arc background -->
+              <path d="M40 190 A130 130 0 0 1 300 190" stroke="rgba(255,255,255,0.06)" stroke-width="18" stroke-linecap="round"/>
+              <!-- speed arc fill (showing ~85% = premium) -->
+              <path d="M40 190 A130 130 0 0 1 300 190" stroke="url(#speedGrad)" stroke-width="18" stroke-linecap="round" stroke-dasharray="408" stroke-dashoffset="60">
+                <animate attributeName="stroke-dashoffset" from="408" to="60" dur="2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+              </path>
+              <!-- tick marks -->
+              <g stroke="rgba(255,255,255,0.15)" stroke-width="1.5">
+                <line x1="170" y1="62" x2="170" y2="74" transform="rotate(-90 170 190)"/>
+                <line x1="170" y1="62" x2="170" y2="74" transform="rotate(-67.5 170 190)"/>
+                <line x1="170" y1="62" x2="170" y2="74" transform="rotate(-45 170 190)"/>
+                <line x1="170" y1="62" x2="170" y2="74" transform="rotate(-22.5 170 190)"/>
+                <line x1="170" y1="62" x2="170" y2="74" transform="rotate(0 170 190)"/>
+                <line x1="170" y1="62" x2="170" y2="74" transform="rotate(22.5 170 190)"/>
+                <line x1="170" y1="62" x2="170" y2="74" transform="rotate(45 170 190)"/>
+                <line x1="170" y1="62" x2="170" y2="74" transform="rotate(67.5 170 190)"/>
+                <line x1="170" y1="62" x2="170" y2="74" transform="rotate(90 170 190)"/>
+              </g>
+              <!-- needle -->
+              <line x1="170" y1="190" x2="170" y2="82" stroke="var(--green)" stroke-width="3" stroke-linecap="round" transform="rotate(70 170 190)">
+                <animateTransform attributeName="transform" type="rotate" from="-90 170 190" to="70 170 190" dur="2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+              </line>
+              <circle cx="170" cy="190" r="10" fill="#162019" stroke="var(--green)" stroke-width="3"/>
+              <circle cx="170" cy="190" r="4" fill="var(--green)"/>
+              <!-- labels -->
+              <text x="42" y="210" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.3)">0</text>
+              <text x="155" y="56" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.3)">500</text>
+              <text x="292" y="210" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.3)">1000</text>
+              <!-- center value -->
+              <text x="170" y="158" text-anchor="middle" font-family="'Exo 2',sans-serif" font-size="38" font-weight="900" fill="var(--green)">1024</text>
+              <text x="170" y="178" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.5)">Mbps</text>
+              <defs>
+                <linearGradient id="speedGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#00e64d" stop-opacity="0.4"/>
+                  <stop offset="60%" stop-color="#00e64d"/>
+                  <stop offset="100%" stop-color="#ffd700"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div style="text-align:center;margin-top:12px;">
+              <div style="font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;">Plano Premium — 1 Gbps</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">R$ 99,90/mês · Fibra Óptica Real</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── COMO FUNCIONA ──────────── -->
+  <section class="showcase" style="background:var(--bg2);">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px;">
+        <div class="section-label reveal">Simples assim</div>
+        <h2 class="section-title reveal">Como <span>contratar</span> sua internet</h2>
+        <p class="section-subtitle reveal" style="margin:16px auto 0;">Processo rápido, sem burocracia. Você faz tudo pelo WhatsApp.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;">
+        <!-- connecting line -->
+        <div style="position:absolute;top:36px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,transparent,rgba(0,230,77,0.2),rgba(0,230,77,0.4),rgba(0,230,77,0.2),transparent);pointer-events:none;"></div>
+
+        <div class="plan-card reveal reveal-delay-1" style="text-align:center;padding:28px 20px;">
+          <div style="width:56px;height:56px;background:rgba(0,230,77,0.1);border:1px solid rgba(0,230,77,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px;">📲</div>
+          <div style="font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--green);margin-bottom:8px;">PASSO 1</div>
+          <div style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;">Entre em contato</div>
+          <p style="font-size:13px;color:var(--text-muted);">Mande uma mensagem no WhatsApp escolhendo seu plano.</p>
+        </div>
+
+        <div class="plan-card reveal reveal-delay-2" style="text-align:center;padding:28px 20px;">
+          <div style="width:56px;height:56px;background:rgba(0,230,77,0.1);border:1px solid rgba(0,230,77,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px;">📋</div>
+          <div style="font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--green);margin-bottom:8px;">PASSO 2</div>
+          <div style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;">Confirme os dados</div>
+          <p style="font-size:13px;color:var(--text-muted);">Nossa equipe confirma endereço e disponibilidade na sua rua.</p>
+        </div>
+
+        <div class="plan-card reveal reveal-delay-3" style="text-align:center;padding:28px 20px;">
+          <div style="width:56px;height:56px;background:rgba(0,230,77,0.1);border:1px solid rgba(0,230,77,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px;">🔧</div>
+          <div style="font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--green);margin-bottom:8px;">PASSO 3</div>
+          <div style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;">Agendamos a visita</div>
+          <p style="font-size:13px;color:var(--text-muted);">Técnico qualificado vai até você instalar a fibra óptica.</p>
+        </div>
+
+        <div class="plan-card reveal reveal-delay-4" style="text-align:center;padding:28px 20px;border-color:var(--green);">
+          <div style="width:56px;height:56px;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px;box-shadow:0 0 20px rgba(0,230,77,0.4);">🚀</div>
+          <div style="font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--green);margin-bottom:8px;">PASSO 4</div>
+          <div style="font-family:'Exo 2',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;">Conectado!</div>
+          <p style="font-size:13px;color:var(--text-muted);">Internet ligada na hora. Bom proveito!</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;" class="reveal">
+        <a href="https://wa.me/5533987201213?text=Olá!%20Quero%20contratar%20a%20internet%20da%20Mata%20Verde%20Online." target="_blank" class="btn btn-primary" style="font-size:16px;padding:16px 36px;">
+          📲 Começar agora pelo WhatsApp
+        </a>
+      </div>
     </div>
   </section>
 
