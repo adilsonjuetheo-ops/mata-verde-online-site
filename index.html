@@ -1200,9 +1200,144 @@
       .nav-logo .logo-icon img { height: 38px; max-width: 160px; }
       .hero-badge { font-size: 11px; padding: 5px 10px; }
     }
+
+    /* ──────────── PROGRESS BAR ──────────── */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0;
+      height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--green), var(--green-glow));
+      z-index: 9999;
+      box-shadow: 0 0 8px rgba(0,230,77,0.6);
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
+
+    /* ──────────── NAV ACTIVE STATE ──────────── */
+    .nav-links a.active {
+      color: var(--green);
+      background: rgba(0,230,77,0.08);
+    }
+
+    /* ──────────── PLAN CARD SPRING HOVER ──────────── */
+    .plan-card {
+      transition: transform 0.4s cubic-bezier(0.34, 1.3, 0.64, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+    }
+    .plan-card:hover {
+      transform: translateY(-10px) scale(1.015);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.5), 0 0 50px rgba(0,230,77,0.18);
+    }
+    .plan-card.featured:hover {
+      transform: translateY(-16px) scale(1.015);
+      box-shadow: 0 36px 80px rgba(0,0,0,0.55), 0 0 70px rgba(0,230,77,0.25);
+    }
+
+    /* ──────────── MOBILE CTA BAR ──────────── */
+    #mobile-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 950;
+      background: rgba(8,12,10,0.97);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(0,230,77,0.2);
+      padding: 10px 16px;
+      transition: transform 0.3s ease;
+    }
+    #mobile-cta-bar .btn { width: 100%; justify-content: center; font-size: 15px; padding: 13px; }
+    #mobile-cta-bar.hidden { transform: translateY(100%); }
+    @media (max-width: 768px) {
+      #mobile-cta-bar { display: block; }
+      body { padding-bottom: 70px; }
+      .whatsapp-float { bottom: 88px; }
+    }
+
+    /* ──────────── FAQ ──────────── */
+    #faq { background: var(--bg3); }
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .faq-item.open { border-color: rgba(0,230,77,0.35); }
+    .faq-question {
+      padding: 18px 22px;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 600; font-size: 15px; color: #fff;
+      gap: 16px; user-select: none; transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--green); }
+    .faq-arrow {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(0,230,77,0.06); border: 1px solid rgba(0,230,77,0.18);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--green); font-size: 18px; line-height: 1;
+      transition: transform 0.3s, background 0.2s;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); background: rgba(0,230,77,0.12); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-answer-inner { padding: 0 22px 18px; font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+    .faq-answer-inner a { color: var(--green); font-weight: 600; }
+
+    /* ──────────── DEPOIMENTOS CARROSSEL ──────────── */
+    .depo-carousel-wrap { position: relative; overflow: hidden; padding-bottom: 52px; }
+    .depo-track {
+      display: flex; gap: 24px;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+    .depo-track .depo-card { flex: 0 0 calc(33.333% - 16px); }
+    @media (max-width: 1024px) { .depo-track .depo-card { flex: 0 0 calc(50% - 12px); } }
+    @media (max-width: 640px)  { .depo-track .depo-card { flex: 0 0 calc(100% - 12px); } }
+    .depo-controls {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+    }
+    #depoDots { display: flex; gap: 8px; align-items: center; }
+    .depo-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,230,77,0.2); border: 1px solid rgba(0,230,77,0.3);
+      cursor: pointer; transition: all 0.25s;
+    }
+    .depo-dot.active { background: var(--green); width: 24px; border-radius: 4px; box-shadow: 0 0 8px rgba(0,230,77,0.5); }
+    .depo-arrow-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--green); font-size: 22px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s; line-height: 1;
+    }
+    .depo-arrow-btn:hover { border-color: var(--green); background: rgba(0,230,77,0.08); }
+
+    /* ──────────── LGPD BAR ──────────── */
+    #lgpd-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 930;
+      background: rgba(13,20,16,0.98); border-top: 1px solid var(--border);
+      padding: 14px 24px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      backdrop-filter: blur(12px);
+      transform: translateY(100%); transition: transform 0.4s ease;
+    }
+    #lgpd-bar.show { transform: translateY(0); }
+    @media (max-width: 768px) { #lgpd-bar { bottom: 70px; } }
+    #lgpd-bar p { font-size: 13px; color: var(--text-muted); flex: 1; min-width: 200px; line-height: 1.5; }
+    #lgpd-bar p a { color: var(--green); }
+    #lgpd-accept {
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: #fff; border: none; border-radius: 100px; padding: 8px 22px;
+      font-family: 'Exo 2', sans-serif; font-size: 13px; font-weight: 700;
+      cursor: pointer; white-space: nowrap; transition: all 0.2s;
+    }
+    #lgpd-accept:hover { transform: scale(1.04); box-shadow: 0 0 16px rgba(0,230,77,0.4); }
   </style>
 </head>
 <body>
+
+  <div id="scroll-progress"></div>
 
   <!-- ──────────── NAVBAR ──────────── -->
   <nav id="navbar">
@@ -1218,6 +1353,7 @@
         <li><a href="#diferenciais">Diferenciais</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
       <div class="nav-cta">
@@ -1271,7 +1407,7 @@
           </div>
           <div class="hero-stats">
             <div class="stat">
-              <span class="stat-value">+15</span>
+              <span class="stat-value counter" data-target="15" data-prefix="+">+15</span>
               <span class="stat-label">Anos de experiência</span>
             </div>
             <div class="stat">
@@ -1279,7 +1415,7 @@
               <span class="stat-label">Velocidade máxima</span>
             </div>
             <div class="stat">
-              <span class="stat-value">99,9%</span>
+              <span class="stat-value counter" data-target="99.9" data-suffix="%" data-decimal="1">99,9%</span>
               <span class="stat-label">Disponibilidade</span>
             </div>
           </div>
@@ -1893,9 +2029,10 @@
         <h2 class="section-title">O que nossos <span>clientes dizem</span></h2>
         <p class="section-subtitle">Mais de 15 anos conectando famílias e empresas em Mata Verde e região.</p>
       </div>
-      <div class="depo-grid">
+      <div class="depo-carousel-wrap">
+      <div class="depo-track" id="depoTrack">
 
-        <div class="depo-card reveal reveal-delay-1">
+        <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Mudei para a Mata Verde Online há dois anos e não me arrependo. A internet nunca cai, a velocidade é ótima e quando precisei de suporte técnico o pessoal veio no mesmo dia. Recomendo demais!"</p>
           <div class="depo-author">
@@ -1907,7 +2044,7 @@
           </div>
         </div>
 
-        <div class="depo-card reveal reveal-delay-2">
+        <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Trabalho em home office e dependia de uma internet estável. Desde que assine o plano premium, nunca mais tive problema em videoconferência. Vale cada centavo dos R$99,90!"</p>
           <div class="depo-author">
@@ -1919,7 +2056,7 @@
           </div>
         </div>
 
-        <div class="depo-card reveal reveal-delay-3">
+        <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Tenho loja aqui em Mata Verde e a internet da Mata Verde Online é fundamental pro meu negócio. Rápida, estável e o atendimento é nota dez. Pessoal muito atencioso!"</p>
           <div class="depo-author">
@@ -1931,7 +2068,7 @@
           </div>
         </div>
 
-        <div class="depo-card reveal reveal-delay-1">
+        <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Três filhos em casa assistindo streaming ao mesmo tempo e ainda consigo jogar online sem travamento. A internet de 700 mega foi a melhor escolha pra nossa família!"</p>
           <div class="depo-author">
@@ -1943,7 +2080,7 @@
           </div>
         </div>
 
-        <div class="depo-card reveal reveal-delay-2">
+        <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Já tentei outros provedores antes e nenhum se compara. A Mata Verde Online tem o melhor custo-benefício da região. Já indiquei pra vários vizinhos e todos adoraram!"</p>
           <div class="depo-author">
@@ -1955,7 +2092,7 @@
           </div>
         </div>
 
-        <div class="depo-card reveal reveal-delay-3">
+        <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
           <p class="depo-text">"Contratei o plano básico e ficou mais rápido do que esperava! Para assistir aulas online e trabalhar no computador é perfeito. O preço é ótimo e o pessoal é super atencioso."</p>
           <div class="depo-author">
@@ -1967,7 +2104,13 @@
           </div>
         </div>
 
-      </div>
+      </div><!-- /depo-track -->
+        <div class="depo-controls">
+          <button class="depo-arrow-btn" id="depoPrev" aria-label="Anterior">&#8249;</button>
+          <div id="depoDots"></div>
+          <button class="depo-arrow-btn" id="depoNext" aria-label="Próximo">&#8250;</button>
+        </div>
+      </div><!-- /depo-carousel-wrap -->
     </div>
   </section>
 
@@ -2068,6 +2211,90 @@
     </div>
   </section>
 
+  <!-- ──────────── FAQ ──────────── -->
+  <section id="faq">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div class="section-label reveal">Dúvidas Frequentes</div>
+        <h2 class="section-title reveal">Perguntas <span>mais comuns</span></h2>
+        <p class="section-subtitle reveal" style="margin:16px auto 0;">Tire suas dúvidas antes de entrar em contato — mas se preferir, é só chamar no WhatsApp!</p>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <span>A instalação inclui roteador Wi-Fi?</span>
+            <span class="faq-arrow">&#8964;</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Sim! A instalação da Mata Verde Online é completa: inclui o roteador Wi-Fi e toda a configuração feita pela nossa equipe técnica. Você já sai conectado no dia da instalação, sem precisar comprar nenhum equipamento adicional.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <span>Qual o prazo de instalação após contratar?</span>
+            <span class="faq-arrow">&#8964;</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Nosso prazo médio é de <strong style="color:#fff;">1 a 3 dias úteis</strong> após a confirmação do pedido. Dependendo da disponibilidade da equipe e da sua localização, conseguimos até instalar no mesmo dia. Entre em contato pelo <a href="https://wa.me/5533987201213" target="_blank">WhatsApp</a> para verificar!</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <span>Existe fidelidade ou multa por cancelamento?</span>
+            <span class="faq-arrow">&#8964;</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Aqui você não tem surpresas. Trabalhamos sem fidelidade forçada — você pode cancelar quando quiser, sem multa. Nossa confiança é a qualidade do serviço que mantém você conosco.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <span>Como verifico se minha rua tem cobertura?</span>
+            <span class="faq-arrow">&#8964;</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">É simples: basta nos chamar no <a href="https://wa.me/5533987201213" target="_blank">WhatsApp (33) 98720-1213</a> informando seu endereço completo. Nossa equipe verifica a disponibilidade na sua rua e responde em minutos. Atendemos Mata Verde, Vila Bahia e região.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <span>Como funciona o suporte técnico?</span>
+            <span class="faq-arrow">&#8964;</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Nosso suporte é <strong style="color:#fff;">local e humano</strong> — fale diretamente com a equipe pelo WhatsApp no <a href="https://wa.me/5533987201213" target="_blank">(33) 98720-1213</a>. Em caso de problema técnico, priorizamos o atendimento rápido com técnicos que conhecem cada rua da região.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <span>Posso usar para Smart TV, câmeras e videogame?</span>
+            <span class="faq-arrow">&#8964;</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Com certeza! Nossos planos são ideais para múltiplos dispositivos ao mesmo tempo. Smart TV em 4K, câmeras de segurança em nuvem, videogame online, home office e streaming — tudo junto sem perda de velocidade ou estabilidade.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question">
+            <span>Como realizo o pagamento da mensalidade?</span>
+            <span class="faq-arrow">&#8964;</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">O pagamento pode ser feito por <strong style="color:#fff;">PIX, boleto bancário</strong> ou outras formas combinadas no momento da contratação. Para 2ª via de boleto ou dúvidas sobre pagamento, basta chamar nossa equipe no <a href="https://wa.me/5533987201213" target="_blank">WhatsApp</a>.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ──────────── INSTAGRAM BANNER ──────────── -->
   <section style="padding:60px 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 50% 50%,rgba(220,39,67,0.06),transparent);pointer-events:none;"></div>
@@ -2142,6 +2369,17 @@
     </div>
   </footer>
 
+  <!-- ──────────── MOBILE CTA BAR ──────────── -->
+  <div id="mobile-cta-bar">
+    <a href="https://wa.me/5533987201213?text=Olá!%20Quero%20contratar%20a%20internet%20da%20Mata%20Verde%20Online." target="_blank" class="btn btn-primary">📲 Assine pelo WhatsApp</a>
+  </div>
+
+  <!-- ──────────── LGPD ──────────── -->
+  <div id="lgpd-bar">
+    <p>🍪 Este site utiliza cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade.</p>
+    <button id="lgpd-accept">Entendi</button>
+  </div>
+
   <!-- ──────────── WHATSAPP FLOAT ──────────── -->
   <div class="whatsapp-float">
     <div class="whatsapp-tooltip">Fale conosco agora!</div>
@@ -2152,13 +2390,18 @@
 
   <!-- ──────────── SCRIPTS ──────────── -->
   <script>
-    // Navbar scroll
+    // ── Navbar scroll + Progress bar ──
     const navbar = document.getElementById('navbar');
+    const progressBar = document.getElementById('scroll-progress');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+      const doc = document.documentElement;
+      const scrollTop = window.scrollY || doc.scrollTop;
+      const docHeight = doc.scrollHeight - doc.clientHeight;
+      if (progressBar) progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight * 100) : 0) + '%';
+    }, { passive: true });
 
-    // Mobile menu
+    // ── Mobile menu ──
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileClose = document.getElementById('mobileClose');
@@ -2168,17 +2411,138 @@
       link.addEventListener('click', () => mobileMenu.classList.remove('open'));
     });
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
+    // ── Scroll reveal ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Counter animation ──
+    function animateCounter(el) {
+      const target = parseFloat(el.dataset.target);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const decimal = parseInt(el.dataset.decimal || '0');
+      const duration = 1800;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = target * ease;
+        el.textContent = prefix + (decimal ? val.toFixed(decimal).replace('.', ',') : Math.floor(val)) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = prefix + (decimal ? target.toFixed(decimal).replace('.', ',') : target) + suffix;
+      }
+      requestAnimationFrame(tick);
+    }
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { animateCounter(entry.target); counterObserver.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+    // ── Nav active state ──
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
         }
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }, { threshold: 0.25, rootMargin: '-10% 0px -55% 0px' });
+    document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
 
-    // Form submit → WhatsApp
+    // ── Mobile CTA bar — hide at footer ──
+    const mobileCta = document.getElementById('mobile-cta-bar');
+    const footerEl = document.getElementById('footer');
+    if (mobileCta && footerEl) {
+      new IntersectionObserver(([e]) => mobileCta.classList.toggle('hidden', e.isIntersecting), { threshold: 0.05 }).observe(footerEl);
+    }
+
+    // ── FAQ accordion ──
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-answer').style.maxHeight = '0';
+        });
+        if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+      });
+    });
+
+    // ── Depoimentos carrossel ──
+    (function() {
+      const track = document.getElementById('depoTrack');
+      if (!track) return;
+      const cards = Array.from(track.querySelectorAll('.depo-card'));
+      const dotsWrap = document.getElementById('depoDots');
+      let current = 0, timer;
+
+      function getPerView() {
+        return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+      }
+      function getMax() { return Math.max(0, cards.length - getPerView()); }
+
+      function updateCardSizes() {
+        const pv = getPerView(), gap = 24;
+        cards.forEach(c => {
+          c.style.flex = `0 0 calc(${100 / pv}% - ${gap * (pv - 1) / pv}px)`;
+        });
+      }
+
+      function goTo(idx) {
+        current = Math.max(0, Math.min(idx, getMax()));
+        const cardW = cards[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${current * (cardW + 24)}px)`;
+        renderDots();
+      }
+
+      function renderDots() {
+        dotsWrap.innerHTML = '';
+        for (let i = 0; i <= getMax(); i++) {
+          const d = document.createElement('span');
+          d.className = 'depo-dot' + (i === current ? ' active' : '');
+          d.addEventListener('click', () => { goTo(i); startAuto(); });
+          dotsWrap.appendChild(d);
+        }
+      }
+
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current >= getMax() ? 0 : current + 1), 4500);
+      }
+
+      // Force all cards visible (bypass scroll reveal)
+      cards.forEach(c => c.classList.add('visible'));
+
+      updateCardSizes(); renderDots(); startAuto();
+
+      document.getElementById('depoPrev')?.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+      document.getElementById('depoNext')?.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { updateCardSizes(); goTo(Math.min(current, getMax())); }, 100);
+      });
+      track.addEventListener('mouseenter', () => clearInterval(timer));
+      track.addEventListener('mouseleave', startAuto);
+    })();
+
+    // ── LGPD ──
+    (function() {
+      const bar = document.getElementById('lgpd-bar');
+      const btn = document.getElementById('lgpd-accept');
+      if (!bar || !btn) return;
+      if (!localStorage.getItem('lgpd_ok')) setTimeout(() => bar.classList.add('show'), 1800);
+      btn.addEventListener('click', () => { bar.classList.remove('show'); localStorage.setItem('lgpd_ok', '1'); });
+    })();
+
+    // ── Form submit → WhatsApp ──
     function submitForm(e) {
       e.preventDefault();
       const form = e.target;
@@ -2187,19 +2551,15 @@
       const endereco = form.querySelectorAll('input[type="text"]')[1]?.value || '';
       const plano = form.querySelector('select').value;
       const msg = form.querySelector('textarea').value;
-
       const text = `Olá! Gostaria de contratar a internet da Mata Verde Online.%0A%0A*Nome:* ${encodeURIComponent(nome)}%0A*Telefone:* ${encodeURIComponent(tel)}%0A*Endereço:* ${encodeURIComponent(endereco)}%0A*Plano:* ${encodeURIComponent(plano)}${msg ? '%0A*Mensagem:* ' + encodeURIComponent(msg) : ''}`;
       window.open(`https://wa.me/5533987201213?text=${text}`, '_blank');
     }
 
-    // Smooth scroll for anchor links
+    // ── Smooth scroll ──
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
   </script>
