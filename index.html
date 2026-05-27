@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mata Verde Online — Internet Fibra Óptica em Mata Verde/MG</title>
+  <meta name="description" content="Mata Verde Online: o melhor provedor de internet fibra óptica de Mata Verde/MG e região. Planos a partir de R$75/mês. Mais de 15 anos conectando você ao mundo." />
+  <meta name="keywords" content="internet fibra óptica, Mata Verde, provedor internet MG, Mata Verde Online, internet banda larga" />
+  <meta property="og:title" content="Mata Verde Online — Internet Fibra Óptica" />
+  <meta property="og:description" content="Planos de internet fibra óptica a partir de R$75/mês. Atendimento local, mais de 15 anos de experiência." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.mataverdeonline.com.br" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --green: #00e64d;
+      --green-glow: #00ff55;
+      --green-dark: #00b33c;
+      --gold: #ffd700;
+      --gold-light: #ffe44d;
+      --bg: #080c0a;
+      --bg2: #0d1410;
+      --bg3: #111a14;
+      --surface: #162019;
+      --surface2: #1a2a1e;
+      --border: rgba(0,230,77,0.15);
+      --text: #e8f5ea;
+      --text-muted: #7a9982;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    section { padding: 80px 0; }
+
+    /* ── Utilities ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      display: inline-block;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(0,230,77,0.08);
+      border: 1px solid rgba(0,230,77,0.25);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Exo 2', sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #fff;
+    }
+    .section-title span { color: var(--green); }
+    .section-subtitle {
+      margin-top: 16px;
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .glow-line {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      border-radius: 2px;
+      margin: 20px 0 0;
+      box-shadow: 0 0 12px var(--green);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0,230,77,0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(0,230,77,0.6);
+      background: linear-gradient(135deg, var(--green-glow), var(--green));
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+      border: 2px solid var(--green);
+      box-shadow: 0 0 12px rgba(0,230,77,0.15);
+    }
+    .btn-outline:hover {
+      background: rgba(0,230,77,0.08);
+      box-shadow: 0 0 24px rgba(0,230,77,0.35);
+      transform: translateY(-2px);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #e6a800);
+      color: #0a0a0a;
+      box-shadow: 0 0 20px rgba(255,215,0,0.35);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(255,215,0,0.55);
+    }
+
+    /* ── Background grid effect ── */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,230,77,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,230,77,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .bg-radial {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      opacity: 0.35;
+    }
+
+    /* ──────────── NAVBAR ──────────── */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      padding: 20px 0;
+    }
+    #navbar.scrolled {
+      background: rgba(8,12,10,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: #fff;
+    }
+    .nav-logo .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 18px rgba(0,230,77,0.5);
+    }
+    .nav-logo span { color: var(--green); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links a {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); background: rgba(0,230,77,0.06); }
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(8,12,10,0.98);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      backdrop-filter: blur(20px);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--green); }
+    .mobile-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 32px;
+      color: var(--text-muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* ──────────── HERO ──────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,100,40,0.25) 0%, transparent 65%);
+    }
+    .hero-bg-radial-1 {
+      width: 600px; height: 600px;
+      background: var(--green);
+      top: -200px; left: -200px;
+      opacity: 0.06;
+    }
+    .hero-bg-radial-2 {
+      width: 400px; height: 400px;
+      background: var(--gold);
+      bottom: 0; right: -100px;
+      opacity: 0.04;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding-top: 100px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,230,77,0.08);
+      border: 1px solid rgba(0,230,77,0.3);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--green); }
+      50% { opacity: 0.5; box-shadow: 0 0 2px var(--green); }
+    }
+    .hero-title {
+      font-family: 'Exo 2', sans-serif;
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 900;
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .hero-title .highlight {
+      color: var(--green);
+      text-shadow: 0 0 30px rgba(0,230,77,0.5);
+    }
+    .hero-title .gold { color: var(--gold); text-shadow: 0 0 20px rgba(255,215,0,0.4); }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .stat { display: flex; flex-direction: column; }
+    .stat-value {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--green);
+    }
+    .stat-label { font-size: 13px; color: var(--text-muted); }
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-orb {
+      width: 400px;
+      height: 400px;
+      position: relative;
+    }
+    .orb-core {
+      position: absolute;
+      inset: 50px;
+      background: radial-gradient(circle, rgba(0,230,77,0.18) 0%, rgba(0,100,40,0.08) 60%, transparent 100%);
+      border-radius: 50%;
+      border: 1px solid rgba(0,230,77,0.2);
+      box-shadow: 0 0 80px rgba(0,230,77,0.15), inset 0 0 40px rgba(0,230,77,0.05);
+      animation: orb-pulse 4s ease-in-out infinite;
+    }
+    @keyframes orb-pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 80px rgba(0,230,77,0.15); }
+      50% { transform: scale(1.04); box-shadow: 0 0 120px rgba(0,230,77,0.25); }
+    }
+    .orb-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(0,230,77,0.12);
+      animation: orb-spin linear infinite;
+    }
+    .orb-ring:nth-child(2) { inset: 20px; animation-duration: 8s; border-color: rgba(0,230,77,0.15); }
+    .orb-ring:nth-child(3) { inset: 0; animation-duration: 14s; animation-direction: reverse; }
+    .orb-ring:nth-child(4) { inset: -30px; animation-duration: 20s; border-color: rgba(255,215,0,0.08); }
+    @keyframes orb-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .orb-dot {
+      position: absolute;
+      width: 10px; height: 10px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green);
+      top: 50%; left: 0;
+      transform-origin: 200px 0;
+    }
+    .orb-center-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Exo 2', sans-serif;
+      text-align: center;
+    }
+    .orb-speed {
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(0,230,77,0.6);
+    }
+    .orb-unit { font-size: 16px; color: var(--text-muted); font-weight: 600; margin-top: 4px; }
+    .orb-label { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+
+    /* floating cards hero */
+    .float-card {
+      position: absolute;
+      background: rgba(22,32,25,0.9);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      backdrop-filter: blur(12px);
+      animation: float 3s ease-in-out infinite;
+    }
+    .float-card:nth-child(6) { top: 40px; left: -10px; animation-delay: 0s; }
+    .float-card:nth-child(7) { bottom: 60px; right: -20px; animation-delay: 1.5s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-card-title { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+    .float-card-value { font-family: 'Exo 2', sans-serif; font-size: 16px; font-weight: 700; color: var(--green); }
+    .float-card-icon { font-size: 20px; margin-bottom: 4px; }
+
+    /* ──────────── PLANS ──────────── */
+    #planos { background: var(--bg2); position: relative; overflow: hidden; }
+    #planos .bg-grid { opacity: 0.4; }
+    .plans-header { text-align: center; margin-bottom: 56px; }
+    .plans-header .section-subtitle { margin: 16px auto 0; }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .plan-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,230,77,0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(0,230,77,0.1);
+    }
+    .plan-card.featured {
+      border-color: var(--green);
+      background: linear-gradient(160deg, rgba(0,50,20,0.6), var(--surface));
+      box-shadow: 0 0 50px rgba(0,230,77,0.15);
+      transform: translateY(-8px);
+    }
+    .plan-card.featured:hover {
+      transform: translateY(-14px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,230,77,0.2);
+    }
+    .plan-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .plan-card:hover::before, .plan-card.featured::before { opacity: 1; }
+    .plan-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), #e6a800);
+      color: #0a0a0a;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .plan-name {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .plan-speed {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1;
+      text-shadow: 0 0 20px rgba(0,230,77,0.4);
+    }
+    .plan-speed span { font-size: 18px; font-weight: 600; color: var(--text-muted); }
+    .plan-price-block { margin: 20px 0 24px; }
+    .plan-price-label { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+    .plan-price {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 40px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+    }
+    .plan-price sup { font-size: 18px; vertical-align: top; margin-top: 6px; color: var(--text-muted); }
+    .plan-price sub { font-size: 14px; color: var(--text-muted); }
+    .plan-divider { height: 1px; background: var(--border); margin: 24px 0; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .plan-features li .check {
+      width: 18px; height: 18px;
+      background: rgba(0,230,77,0.1);
+      border: 1px solid rgba(0,230,77,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 10px;
+      color: var(--green);
+      margin-top: 1px;
+    }
+    .plan-card .btn { width: 100%; justify-content: center; }
+
+    /* ──────────── DIFERENCIAIS ──────────── */
+    #diferenciais { position: relative; overflow: hidden; }
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .diff-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+    .diff-card:hover {
+      border-color: rgba(0,230,77,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 20px rgba(0,230,77,0.07);
+    }
+    .diff-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .diff-icon.green { background: rgba(0,230,77,0.1); border: 1px solid rgba(0,230,77,0.2); }
+    .diff-icon.gold { background: rgba(255,215,0,0.08); border: 1px solid rgba(255,215,0,0.2); }
+    .diff-content h3 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .diff-content p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+    .diff-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .diff-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* ──────────── SOBRE ──────────── */
+    #sobre { background: var(--bg2); position: relative; overflow: hidden; }
+    .sobre-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .sobre-visual {
+      position: relative;
+    }
+    .sobre-card-main {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sobre-card-main::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(0,230,77,0.12), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .sobre-year {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 72px;
+      font-weight: 900;
+      color: var(--green);
+      text-shadow: 0 0 40px rgba(0,230,77,0.4);
+      line-height: 1;
+    }
+    .sobre-year-label { font-size: 16px; color: var(--text-muted); margin-top: 8px; }
+    .sobre-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .pillar {
+      background: rgba(0,230,77,0.05);
+      border: 1px solid rgba(0,230,77,0.12);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .pillar .icon { font-size: 18px; }
+    .sobre-floating {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: rgba(255,215,0,0.08);
+      border: 1px solid rgba(255,215,0,0.2);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      backdrop-filter: blur(8px);
+    }
+    .sobre-floating-val {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--gold);
+    }
+    .sobre-floating-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .sobre-text-content { display: flex; flex-direction: column; gap: 20px; }
+    .sobre-text-content p { font-size: 16px; color: var(--text-muted); line-height: 1.75; }
+    .sobre-text-content p strong { color: var(--green); font-weight: 600; }
+
+    /* ──────────── DEPOIMENTOS ──────────── */
+    #depoimentos { background: var(--bg2); position: relative; overflow: hidden; }
+    .depo-header { text-align: center; margin-bottom: 56px; }
+    .depo-header .section-subtitle { margin: 16px auto 0; }
+    .depo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .depo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .depo-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0,230,77,0.3);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 20px rgba(0,230,77,0.06);
+    }
+    .depo-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 64px;
+      font-family: Georgia, serif;
+      color: rgba(0,230,77,0.1);
+      line-height: 1;
+    }
+    .depo-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
+    .depo-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-style: italic;
+      flex: 1;
+    }
+    .depo-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .depo-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      border: 2px solid rgba(0,230,77,0.2);
+    }
+    .depo-name {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .depo-location { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    @media (max-width: 1024px) {
+      .depo-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .depo-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ──────────── CTA BANNER ──────────── */
+    #cta-banner {
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(0,50,20,0.8) 0%, rgba(8,12,10,0.9) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .cta-inner {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-inner h2 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .cta-inner h2 span { color: var(--green); text-shadow: 0 0 20px rgba(0,230,77,0.5); }
+    .cta-inner p { font-size: 17px; color: var(--text-muted); margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-banner-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(0,230,77,0.08), transparent),
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(0,100,40,0.08), transparent);
+      pointer-events: none;
+    }
+
+    /* ──────────── CONTATO ──────────── */
+    #contato { position: relative; overflow: hidden; }
+    .contato-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contato-info h2 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .contato-info h2 span { color: var(--green); }
+    .contato-info p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; }
+    .contact-items { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      transition: all 0.2s;
+    }
+    .contact-item:hover { border-color: rgba(0,230,77,0.3); transform: translateX(4px); }
+    .contact-item-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(0,230,77,0.1);
+      border: 1px solid rgba(0,230,77,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .contact-item-text { display: flex; flex-direction: column; }
+    .contact-item-label { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .contact-item-value { font-size: 15px; color: var(--text); font-weight: 600; margin-top: 2px; }
+    .contato-form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+    .contato-form-card h3 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(0,230,77,0.4);
+      box-shadow: 0 0 0 3px rgba(0,230,77,0.08);
+    }
+    .form-group select option { background: var(--bg); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .contato-form-card .btn { width: 100%; justify-content: center; margin-top: 8px; }
+
+    /* ──────────── FOOTER ──────────── */
+    #footer {
+      background: #050805;
+      border-top: 1px solid var(--border);
+      padding: 64px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 280px; }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .social-btn {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      transition: all 0.2s;
+    }
+    .social-btn:hover { border-color: var(--green); background: rgba(0,230,77,0.08); transform: translateY(-2px); }
+    .footer-col h4 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-links a:hover { color: var(--green); }
+    .footer-links a::before { content: '›'; color: var(--green); font-size: 16px; opacity: 0.5; }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 13px; color: var(--text-muted); }
+    .footer-bottom a { color: var(--green); }
+    .footer-badges { display: flex; gap: 10px; align-items: center; }
+    .badge-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ──────────── WHATSAPP FLOAT ──────────── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    .whatsapp-tooltip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.2s;
+      pointer-events: none;
+    }
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .whatsapp-btn {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: all 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37,211,102,0.6);
+    }
+    .whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.3);
+      animation: whatsapp-ping 2s ease-out infinite;
+    }
+    @keyframes whatsapp-ping {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    /* ──────────── SCROLL REVEAL ──────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ──────────── RESPONSIVE ──────────── */
+    @media (max-width: 1024px) {
+      .hero-content { grid-template-columns: 1fr; gap: 40px; padding-top: 120px; }
+      .hero-visual { display: none; }
+      .plans-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .plan-card.featured { transform: none; }
+      .diff-layout { grid-template-columns: 1fr; gap: 40px; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .sobre-layout { grid-template-columns: 1fr; }
+      .sobre-visual { display: none; }
+      .contato-layout { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 60px 0; }
+      .nav-links { display: none; }
+      .nav-cta .btn-outline { display: none; }
+      .hamburger { display: flex; }
+      .hero-stats { gap: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { justify-content: center; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ──────────── NAVBAR ──────────── -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">🌿</div>
+        Mata Verde <span>Online</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#planos">Planos</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://mataverdeonline.assinante.net" target="_blank" class="btn btn-outline" style="padding:10px 20px;font-size:13px;">Portal do Assinante</a>
+        <a href="https://wa.me/5533987201213" target="_blank" class="btn btn-primary" style="padding:10px 20px;font-size:13px;">📲 Assine Agora</a>
+      </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="#hero" class="mobile-link">Início</a>
+    <a href="#planos" class="mobile-link">Planos</a>
+    <a href="#diferenciais" class="mobile-link">Diferenciais</a>
+    <a href="#sobre" class="mobile-link">Sobre</a>
+    <a href="#contato" class="mobile-link">Contato</a>
+    <a href="https://wa.me/5533987201213" target="_blank" class="btn btn-primary">📲 Assine Agora</a>
+    <a href="https://mataverdeonline.assinante.net" target="_blank" class="btn btn-outline">Portal do Assinante</a>
+  </div>
+
+  <!-- ──────────── HERO ──────────── -->
+  <section id="hero">
+    <div class="bg-grid"></div>
+    <div class="bg-radial hero-bg-radial-1"></div>
+    <div class="bg-radial hero-bg-radial-2"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-left">
+          <div class="hero-badge">Fibra Óptica em Mata Verde/MG</div>
+          <h1 class="hero-title">
+            Internet <span class="highlight">Ultra</span><br />
+            Velocidade em<br />
+            <span class="gold">Fibra Óptica</span>
+          </h1>
+          <p class="hero-desc">
+            Conectando você ao mundo com a melhor infraestrutura de fibra óptica de Mata Verde e região. Estabilidade, velocidade e suporte local que você pode confiar.
+          </p>
+          <div class="hero-cta">
+            <a href="https://wa.me/5533987201213" target="_blank" class="btn btn-primary">
+              📲 Assine pelo WhatsApp
+            </a>
+            <a href="#planos" class="btn btn-outline">
+              Ver Planos
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-value">+15</span>
+              <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">1 Gbps</span>
+              <span class="stat-label">Velocidade máxima</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">99,9%</span>
+              <span class="stat-label">Disponibilidade</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-orb">
+            <div class="orb-ring"></div>
+            <div class="orb-ring"></div>
+            <div class="orb-ring"></div>
+            <div class="orb-core"></div>
+            <div class="orb-center-text">
+              <div class="orb-speed">1<span style="font-size:28px">Gbps</span></div>
+              <div class="orb-label">Fibra Óptica</div>
+            </div>
+            <div class="float-card">
+              <div class="float-card-icon">⚡</div>
+              <div class="float-card-title">Latência</div>
+              <div class="float-card-value">&lt; 5ms</div>
+            </div>
+            <div class="float-card">
+              <div class="float-card-icon">🛡️</div>
+              <div class="float-card-title">Uptime</div>
+              <div class="float-card-value">99,9%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── PLANOS ──────────── -->
+  <section id="planos">
+    <div class="bg-grid"></div>
+    <div class="container">
+      <div class="plans-header reveal">
+        <div class="section-label">Planos de Internet</div>
+        <h2 class="section-title">Escolha o plano <span>ideal para você</span></h2>
+        <p class="section-subtitle">Fibra óptica de verdade, com velocidade garantida e suporte local. Sem enrolação.</p>
+      </div>
+      <div class="plans-grid">
+
+        <!-- Plano Básico -->
+        <div class="plan-card reveal reveal-delay-1">
+          <div class="plan-name">Plano Básico</div>
+          <div class="plan-speed">400<span> Mega</span></div>
+          <div class="plan-price-block">
+            <div class="plan-price-label">por apenas</div>
+            <div class="plan-price"><sup>R$</sup>75<sub>,00/mês</sub></div>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><span class="check">✓</span>400 Mbps de velocidade</li>
+            <li><span class="check">✓</span>Download e upload ilimitados</li>
+            <li><span class="check">✓</span>Ideal para redes sociais e streaming</li>
+            <li><span class="check">✓</span>Suporte técnico local</li>
+            <li><span class="check">✓</span>Instalação profissional</li>
+          </ul>
+          <a href="https://wa.me/5533987201213?text=Olá!%20Tenho%20interesse%20no%20Plano%20Básico%20de%20400%20Mega%20por%20R$75/mês." target="_blank" class="btn btn-outline">
+            📲 Assinar Agora
+          </a>
+        </div>
+
+        <!-- Plano Intermediário (destaque) -->
+        <div class="plan-card featured reveal reveal-delay-2">
+          <div class="plan-badge">⭐ Mais Popular</div>
+          <div class="plan-name">Plano Intermediário</div>
+          <div class="plan-speed">700<span> Mega</span></div>
+          <div class="plan-price-block">
+            <div class="plan-price-label">por apenas</div>
+            <div class="plan-price"><sup>R$</sup>85<sub>,00/mês</sub></div>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><span class="check">✓</span>700 Mbps de velocidade</li>
+            <li><span class="check">✓</span>Download e upload ilimitados</li>
+            <li><span class="check">✓</span>Perfeito para home office e jogos</li>
+            <li><span class="check">✓</span>Múltiplos dispositivos simultâneos</li>
+            <li><span class="check">✓</span>Suporte técnico prioritário</li>
+            <li><span class="check">✓</span>Instalação profissional</li>
+          </ul>
+          <a href="https://wa.me/5533987201213?text=Olá!%20Tenho%20interesse%20no%20Plano%20Intermediário%20de%20700%20Mega%20por%20R$85/mês." target="_blank" class="btn btn-primary">
+            📲 Assinar Agora
+          </a>
+        </div>
+
+        <!-- Plano Premium -->
+        <div class="plan-card reveal reveal-delay-3">
+          <div class="plan-name">Plano Premium</div>
+          <div class="plan-speed">1024<span> Mega</span></div>
+          <div class="plan-price-block">
+            <div class="plan-price-label">por apenas</div>
+            <div class="plan-price"><sup>R$</sup>99<sub>,90/mês</sub></div>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><span class="check">✓</span>1 Gbps (1024 Mbps) de velocidade</li>
+            <li><span class="check">✓</span>Download e upload ilimitados</li>
+            <li><span class="check">✓</span>Máxima performance para tudo</li>
+            <li><span class="check">✓</span>Ideal para empresas e gamers</li>
+            <li><span class="check">✓</span>Suporte técnico VIP 24h</li>
+            <li><span class="check">✓</span>Instalação profissional</li>
+          </ul>
+          <a href="https://wa.me/5533987201213?text=Olá!%20Tenho%20interesse%20no%20Plano%20Premium%20de%201%20Gbps%20por%20R$99,90/mês." target="_blank" class="btn btn-gold">
+            📲 Assinar Agora
+          </a>
+        </div>
+
+      </div>
+      <p style="text-align:center;margin-top:28px;font-size:13px;color:var(--text-muted);">
+        Dúvidas sobre qual plano escolher? <a href="https://wa.me/5533987201213" target="_blank" style="color:var(--green);font-weight:600;">Fale com a gente pelo WhatsApp →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ──────────── DIFERENCIAIS ──────────── -->
+  <section id="diferenciais">
+    <div class="container">
+      <div class="diff-layout">
+        <div class="diff-left">
+          <div class="section-label reveal">Por que nos escolher</div>
+          <h2 class="section-title reveal">Tecnologia que <span>você sente</span> na prática</h2>
+          <p class="section-subtitle reveal">Não é só internet — é a certeza de ter conexão de qualidade quando você mais precisa.</p>
+          <div class="glow-line reveal"></div>
+          <br /><br />
+          <a href="https://wa.me/5533987201213" target="_blank" class="btn btn-primary reveal">
+            📲 Falar com um consultor
+          </a>
+        </div>
+        <div class="diff-right">
+          <div class="diff-grid">
+            <div class="diff-card reveal reveal-delay-1">
+              <div class="diff-icon green">⚡</div>
+              <div class="diff-content">
+                <h3>Ultravelocidade</h3>
+                <p>Até 1 Gbps de fibra óptica para você navegar, baixar e assistir sem travar nunca.</p>
+              </div>
+            </div>
+            <div class="diff-card reveal reveal-delay-2">
+              <div class="diff-icon green">🔒</div>
+              <div class="diff-content">
+                <h3>Alta Estabilidade</h3>
+                <p>Conexão estável para trabalhar, estudar e ter videochamadas sem interrupções.</p>
+              </div>
+            </div>
+            <div class="diff-card reveal reveal-delay-3">
+              <div class="diff-icon gold">🎮</div>
+              <div class="diff-content">
+                <h3>Perfeito para Jogos</h3>
+                <p>Baixa latência e alta velocidade para a melhor experiência em streaming e jogos online.</p>
+              </div>
+            </div>
+            <div class="diff-card reveal reveal-delay-4">
+              <div class="diff-icon gold">🤝</div>
+              <div class="diff-content">
+                <h3>Suporte Local</h3>
+                <p>Atendimento rápido de quem é da região. Técnicos que conhecem sua cidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── SOBRE ──────────── -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-layout">
+        <div class="sobre-visual">
+          <div class="sobre-card-main reveal">
+            <div class="sobre-year">15+</div>
+            <div class="sobre-year-label">Anos conectando Mata Verde</div>
+            <div class="sobre-pillars">
+              <div class="pillar"><span class="icon">🚀</span> Mais Velocidade</div>
+              <div class="pillar"><span class="icon">📶</span> Mais Estabilidade</div>
+              <div class="pillar"><span class="icon">💬</span> Atendimento Próximo</div>
+              <div class="pillar"><span class="icon">🔧</span> Suporte Confiável</div>
+            </div>
+          </div>
+          <div class="sobre-floating reveal">
+            <div class="sobre-floating-val">🏆 +15 anos</div>
+            <div class="sobre-floating-label">de experiência no mercado</div>
+          </div>
+        </div>
+        <div class="sobre-text-content">
+          <div>
+            <div class="section-label reveal">Sobre Nós</div>
+            <h2 class="section-title reveal">Mais de <span>15 anos</span> conectando pessoas</h2>
+          </div>
+          <p class="reveal">
+            A <strong>Mata Verde Online</strong> é um provedor de internet com mais de 15 anos de experiência, levando conexão de qualidade e confiança para seus clientes em Mata Verde/MG, Vila Bahia e região.
+          </p>
+          <p class="reveal">
+            Sempre evoluindo, buscamos as <strong>tecnologias mais inovadoras do mercado</strong>, garantindo maior velocidade, estabilidade e atendimento diferenciado. Nosso compromisso é conectar pessoas, empresas e famílias com uma internet moderna, segura e eficiente.
+          </p>
+          <p class="reveal">
+            Somos um provedor <strong>local, de confiança</strong>, que entende as necessidades da comunidade e entrega soluções reais. Quando você escolhe a Mata Verde Online, você escolhe uma empresa que está aqui perto de você.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;" class="reveal">
+            <a href="#planos" class="btn btn-primary">Ver Planos</a>
+            <a href="https://wa.me/5533987201213" target="_blank" class="btn btn-outline">📲 Falar Conosco</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── DEPOIMENTOS ──────────── -->
+  <section id="depoimentos">
+    <div class="bg-grid"></div>
+    <div class="container">
+      <div class="depo-header reveal">
+        <div class="section-label">Depoimentos</div>
+        <h2 class="section-title">O que nossos <span>clientes dizem</span></h2>
+        <p class="section-subtitle">Mais de 15 anos conectando famílias e empresas em Mata Verde e região.</p>
+      </div>
+      <div class="depo-grid">
+
+        <div class="depo-card reveal reveal-delay-1">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Mudei para a Mata Verde Online há dois anos e não me arrependo. A internet nunca cai, a velocidade é ótima e quando precisei de suporte técnico o pessoal veio no mesmo dia. Recomendo demais!"</p>
+          <div class="depo-author">
+            <div class="depo-avatar" style="background:rgba(0,230,77,0.1);">👩</div>
+            <div>
+              <div class="depo-name">Carla Mendonça</div>
+              <div class="depo-location">📍 Centro — Mata Verde/MG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="depo-card reveal reveal-delay-2">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Trabalho em home office e dependia de uma internet estável. Desde que assine o plano premium, nunca mais tive problema em videoconferência. Vale cada centavo dos R$99,90!"</p>
+          <div class="depo-author">
+            <div class="depo-avatar" style="background:rgba(255,215,0,0.08);">👨‍💻</div>
+            <div>
+              <div class="depo-name">Roberto Alves</div>
+              <div class="depo-location">📍 Vila Bahia — MG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="depo-card reveal reveal-delay-3">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Tenho loja aqui em Mata Verde e a internet da Mata Verde Online é fundamental pro meu negócio. Rápida, estável e o atendimento é nota dez. Pessoal muito atencioso!"</p>
+          <div class="depo-author">
+            <div class="depo-avatar" style="background:rgba(0,230,77,0.1);">🧑‍💼</div>
+            <div>
+              <div class="depo-name">Marcos Ferreira</div>
+              <div class="depo-location">📍 Mata Verde/MG — Empresário</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="depo-card reveal reveal-delay-1">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Três filhos em casa assistindo streaming ao mesmo tempo e ainda consigo jogar online sem travamento. A internet de 700 mega foi a melhor escolha pra nossa família!"</p>
+          <div class="depo-author">
+            <div class="depo-avatar" style="background:rgba(255,215,0,0.08);">👨‍👩‍👧‍👦</div>
+            <div>
+              <div class="depo-name">Patrícia Lima</div>
+              <div class="depo-location">📍 Bairro Novo — Mata Verde/MG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="depo-card reveal reveal-delay-2">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Já tentei outros provedores antes e nenhum se compara. A Mata Verde Online tem o melhor custo-benefício da região. Já indiquei pra vários vizinhos e todos adoraram!"</p>
+          <div class="depo-author">
+            <div class="depo-avatar" style="background:rgba(0,230,77,0.1);">👩‍🏫</div>
+            <div>
+              <div class="depo-name">Ana Clara Souza</div>
+              <div class="depo-location">📍 Vila Bahia — MG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="depo-card reveal reveal-delay-3">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">"Contratei o plano básico e ficou mais rápido do que esperava! Para assistir aulas online e trabalhar no computador é perfeito. O preço é ótimo e o pessoal é super atencioso."</p>
+          <div class="depo-author">
+            <div class="depo-avatar" style="background:rgba(255,215,0,0.08);">🎓</div>
+            <div>
+              <div class="depo-name">Lucas Rodrigues</div>
+              <div class="depo-location">📍 Centro — Mata Verde/MG</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── CTA BANNER ──────────── -->
+  <div id="cta-banner">
+    <div class="cta-banner-bg"></div>
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="section-label" style="margin-bottom:20px;">Pronto para conectar?</div>
+        <h2>Internet de verdade em <span>Mata Verde e região</span></h2>
+        <p>Assine agora pelo WhatsApp e tenha sua conexão ativada com rapidez. Atendimento humano, suporte local, sem complicação.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/5533987201213?text=Olá!%20Quero%20contratar%20a%20internet%20da%20Mata%20Verde%20Online." target="_blank" class="btn btn-primary" style="font-size:16px;padding:16px 32px;">
+            📲 Assinar pelo WhatsApp
+          </a>
+          <a href="https://mataverdeonline.assinante.net" target="_blank" class="btn btn-outline" style="font-size:16px;padding:16px 32px;">
+            Portal do Assinante
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────────── CONTATO ──────────── -->
+  <section id="contato">
+    <div class="container">
+      <div class="contato-layout">
+        <div class="contato-info">
+          <div class="section-label reveal">Contato</div>
+          <h2 class="reveal">Fale com a <span>gente</span></h2>
+          <p class="reveal">Estamos prontos para atender você. Escolha o canal de sua preferência e entraremos em contato rapidamente.</p>
+          <div class="contact-items">
+            <a href="https://wa.me/5533987201213" target="_blank" class="contact-item reveal reveal-delay-1">
+              <div class="contact-item-icon">📲</div>
+              <div class="contact-item-text">
+                <span class="contact-item-label">WhatsApp / Telefone</span>
+                <span class="contact-item-value">(33) 98720-1213</span>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/mataverde_online10/" target="_blank" class="contact-item reveal reveal-delay-2">
+              <div class="contact-item-icon">📸</div>
+              <div class="contact-item-text">
+                <span class="contact-item-label">Instagram</span>
+                <span class="contact-item-value">@mataverde_online10</span>
+              </div>
+            </a>
+            <a href="https://mataverdeonline.assinante.net" target="_blank" class="contact-item reveal reveal-delay-3">
+              <div class="contact-item-icon">🖥️</div>
+              <div class="contact-item-text">
+                <span class="contact-item-label">Portal do Assinante</span>
+                <span class="contact-item-value">mataverdeonline.assinante.net</span>
+              </div>
+            </a>
+            <div class="contact-item reveal reveal-delay-4">
+              <div class="contact-item-icon">📍</div>
+              <div class="contact-item-text">
+                <span class="contact-item-label">Região de Atendimento</span>
+                <span class="contact-item-value">Mata Verde, Vila Bahia e região — MG</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contato-form-card reveal">
+          <h3>💬 Solicite sua assinatura</h3>
+          <form id="contactForm" onsubmit="submitForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nome completo</label>
+                <input type="text" placeholder="Seu nome" required />
+              </div>
+              <div class="form-group">
+                <label>Telefone / WhatsApp</label>
+                <input type="tel" placeholder="(33) 9..." required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Endereço / Bairro</label>
+              <input type="text" placeholder="Rua, número, bairro" />
+            </div>
+            <div class="form-group">
+              <label>Plano de interesse</label>
+              <select>
+                <option value="">Selecione um plano...</option>
+                <option>Plano Básico — 400 Mega — R$75/mês</option>
+                <option>Plano Intermediário — 700 Mega — R$85/mês</option>
+                <option>Plano Premium — 1024 Mega — R$99,90/mês</option>
+                <option>Não sei ainda, quero mais informações</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mensagem (opcional)</label>
+              <textarea placeholder="Alguma dúvida ou informação adicional?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">📲 Enviar pelo WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────── FOOTER ──────────── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="logo-icon">🌿</div>
+            Mata Verde <span>Online</span>
+          </div>
+          <p>Conectando você ao mundo com fibra óptica de qualidade em Mata Verde/MG e região. Mais de 15 anos de experiência e comprometimento.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/mataverde_online10/" target="_blank" class="social-btn" title="Instagram">📸</a>
+            <a href="https://wa.me/5533987201213" target="_blank" class="social-btn" title="WhatsApp">📲</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Planos</h4>
+          <ul class="footer-links">
+            <li><a href="#planos">Básico — 400 Mega</a></li>
+            <li><a href="#planos">Intermediário — 700 Mega</a></li>
+            <li><a href="#planos">Premium — 1 Gbps</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Links Úteis</h4>
+          <ul class="footer-links">
+            <li><a href="https://mataverdeonline.assinante.net" target="_blank">Portal do Assinante</a></li>
+            <li><a href="https://wa.me/5533987201213" target="_blank">Suporte Técnico</a></li>
+            <li><a href="https://wa.me/5533987201213" target="_blank">Segunda Via de Boleto</a></li>
+            <li><a href="https://www.instagram.com/mataverde_online10/" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Provedor de Internet Mataverde Online Ltda-ME — Todos os direitos reservados.</p>
+        <div class="footer-badges">
+          <span class="badge-pill">🌿 Mata Verde/MG</span>
+          <span class="badge-pill">⚡ Fibra Óptica</span>
+          <span class="badge-pill">+15 Anos</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ──────────── WHATSAPP FLOAT ──────────── -->
+  <div class="whatsapp-float">
+    <div class="whatsapp-tooltip">Fale conosco agora!</div>
+    <a href="https://wa.me/5533987201213?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20planos%20da%20Mata%20Verde%20Online." target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+      💬
+    </a>
+  </div>
+
+  <!-- ──────────── SCRIPTS ──────────── -->
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Form submit → WhatsApp
+    function submitForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const nome = form.querySelector('input[type="text"]').value;
+      const tel = form.querySelector('input[type="tel"]').value;
+      const endereco = form.querySelectorAll('input[type="text"]')[1]?.value || '';
+      const plano = form.querySelector('select').value;
+      const msg = form.querySelector('textarea').value;
+
+      const text = `Olá! Gostaria de contratar a internet da Mata Verde Online.%0A%0A*Nome:* ${encodeURIComponent(nome)}%0A*Telefone:* ${encodeURIComponent(tel)}%0A*Endereço:* ${encodeURIComponent(endereco)}%0A*Plano:* ${encodeURIComponent(plano)}${msg ? '%0A*Mensagem:* ' + encodeURIComponent(msg) : ''}`;
+      window.open(`https://wa.me/5533987201213?text=${text}`, '_blank');
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
