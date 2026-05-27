@@ -208,7 +208,7 @@
       max-width: 230px;
       object-fit: contain;
       display: block;
-      filter: url(#remove-dark-bg) drop-shadow(0 0 10px rgba(0,230,77,0.3));
+      filter: drop-shadow(0 0 10px rgba(0,230,77,0.3));
     }
     .nav-logo span { color: var(--green); }
     .nav-links {
@@ -1147,7 +1147,10 @@
     @media (max-width: 1024px) {
       .hero-content { grid-template-columns: 1fr; gap: 40px; padding-top: 120px; }
       .hero-visual { display: none; }
-      .plans-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .plans-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .plan-card { padding: 28px 18px; }
+      .plan-speed { font-size: 40px; }
+      .plan-price { font-size: 34px; }
       .plan-card.featured { transform: none; }
       .diff-layout { grid-template-columns: 1fr; gap: 40px; }
       .diff-grid { grid-template-columns: 1fr; }
@@ -1156,37 +1159,50 @@
       .contato-layout { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
+    @media (max-width: 860px) {
+      .plans-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .plan-card { padding: 32px 24px; }
+      .plan-speed { font-size: 48px; }
+      .plan-price { font-size: 40px; }
+    }
     @media (max-width: 768px) {
       section { padding: 60px 0; }
       .nav-links { display: none; }
       .nav-cta .btn-outline { display: none; }
       .hamburger { display: flex; }
-      .hero-stats { gap: 24px; }
+      .hero-stats { gap: 20px; }
+      .stat-value { font-size: 24px; }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      #como-funciona-line { display: none; }
+      .contato-form-card { padding: 28px 20px; }
+      .sobre-card-main { padding: 30px 22px; }
+    }
+    @media (max-width: 640px) {
+      .plans-grid { max-width: 100%; }
+      .hero-badge { font-size: 12px; padding: 6px 12px; }
+      .hero-desc { font-size: 15px; }
+      .sobre-pillars { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
+      section { padding: 48px 0; }
+      .container { padding: 0 16px; }
       .hero-cta { flex-direction: column; }
       .hero-cta .btn { justify-content: center; }
       .cta-buttons { flex-direction: column; align-items: center; }
+      .nav-cta .btn-primary { display: none; }
+      .sobre-year { font-size: 54px; }
+      .plans-grid { max-width: 100%; }
+    }
+    @media (max-width: 380px) {
+      .hero-stats { flex-direction: column; gap: 8px; border-top: none; padding-top: 0; }
+      .nav-logo .logo-icon img { height: 38px; max-width: 160px; }
+      .hero-badge { font-size: 11px; padding: 5px 10px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Filtro SVG para remover fundo escuro da logo -->
-  <svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
-    <defs>
-      <filter id="remove-dark-bg" color-interpolation-filters="sRGB">
-        <feColorMatrix type="matrix"
-          values="1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                  5 5 5 0 -0.8"/>
-      </filter>
-    </defs>
-  </svg>
 
   <!-- ──────────── NAVBAR ──────────── -->
   <nav id="navbar">
@@ -1740,8 +1756,8 @@
         <h2 class="section-title reveal">Como <span>contratar</span> sua internet</h2>
         <p class="section-subtitle reveal" style="margin:16px auto 0;">Processo rápido, sem burocracia. Você faz tudo pelo WhatsApp.</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;">
-        <div style="position:absolute;top:36px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,transparent,rgba(0,230,77,0.2),rgba(0,230,77,0.4),rgba(0,230,77,0.2),transparent);pointer-events:none;"></div>
+      <div id="como-funciona-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;">
+        <div id="como-funciona-line" style="position:absolute;top:36px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,transparent,rgba(0,230,77,0.2),rgba(0,230,77,0.4),rgba(0,230,77,0.2),transparent);pointer-events:none;"></div>
         <div class="plan-card reveal reveal-delay-1" style="text-align:center;padding:28px 20px;">
           <div style="width:56px;height:56px;background:rgba(0,230,77,0.1);border:1px solid rgba(0,230,77,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px;">📲</div>
           <div style="font-family:'Exo 2',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:var(--green);margin-bottom:8px;">PASSO 1</div>
