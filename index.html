@@ -179,17 +179,18 @@
       color: #fff;
     }
     .nav-logo .logo-icon {
-      width: 42px;
       height: 42px;
-      background: linear-gradient(135deg, var(--green), var(--green-dark));
-      border-radius: 10px;
+      width: auto;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      box-shadow: 0 0 18px rgba(0,230,77,0.5);
+    }
+    .nav-logo .logo-icon img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
     }
     .nav-logo span { color: var(--green); }
+    .nav-logo .logo-icon img { filter: drop-shadow(0 0 8px rgba(0,230,77,0.35)); }
     .nav-links {
       display: flex;
       align-items: center;
@@ -1043,8 +1044,9 @@
   <nav id="navbar">
     <div class="container nav-inner">
       <a href="#" class="nav-logo">
-        <div class="logo-icon">🌿</div>
-        Mata Verde <span>Online</span>
+        <div class="logo-icon">
+          <img src="logo.png" alt="Mata Verde Online" />
+        </div>
       </a>
       <ul class="nav-links">
         <li><a href="#hero">Início</a></li>
@@ -1508,8 +1510,9 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="nav-logo">
-            <div class="logo-icon">🌿</div>
-            Mata Verde <span>Online</span>
+            <div class="logo-icon">
+              <img src="logo.png" alt="Mata Verde Online" style="height:48px;" />
+            </div>
           </div>
           <p>Conectando você ao mundo com fibra óptica de qualidade em Mata Verde/MG e região. Mais de 15 anos de experiência e comprometimento.</p>
           <div class="footer-social">
