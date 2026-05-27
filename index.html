@@ -230,13 +230,23 @@
     .hamburger {
       display: none;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 5px;
       cursor: pointer;
-      padding: 8px;
+      padding: 10px 16px;
+      background: transparent;
+      border: 1.5px solid rgba(0,230,77,0.55);
+      border-radius: 50px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .hamburger:hover {
+      border-color: var(--green);
+      box-shadow: 0 0 10px rgba(0,230,77,0.25);
     }
     .hamburger span {
       display: block;
-      width: 24px;
+      width: 22px;
       height: 2px;
       background: var(--green);
       border-radius: 2px;
