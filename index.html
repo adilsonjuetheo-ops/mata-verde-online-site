@@ -201,14 +201,20 @@
     .nav-logo .logo-icon {
       display: flex;
       align-items: center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(0,230,77,0.18);
+      border-radius: 10px;
+      padding: 5px 12px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .nav-logo .logo-icon img {
-      height: 52px;
+      height: 44px;
       width: auto;
-      max-width: 230px;
+      max-width: 220px;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 0 10px rgba(0,230,77,0.3));
+      filter: drop-shadow(0 0 8px rgba(0,230,77,0.25));
     }
     .nav-logo span { color: var(--green); }
     .nav-links {
